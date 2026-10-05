@@ -4,6 +4,8 @@
 
 **EMNLP 2026 Main Conference**
 
+[Paper (arXiv)](https://arxiv.org/abs/2606.23301) | [PDF](https://arxiv.org/pdf/2606.23301)
+
 Yitong Qiao, Lei Liu, Yue Shen, Jian Wang, Jinjie Gu, Zhixuan Chu, and Kui Ren.
 
 ### Overview
