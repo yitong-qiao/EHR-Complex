@@ -33,3 +33,7 @@ The full benchmark and demo data are **not yet publicly available**. Release upd
 ### Data access
 
 This repository does not redistribute MIMIC-IV patient records. Access to the source database must be obtained through [PhysioNet](https://physionet.org/content/mimiciv/). Any release of derived tasks, answers, or execution trajectories will follow the applicable source-data agreement and institutional review requirements.
+
+### Contact
+
+For questions about EHR-Complex, please contact Yitong Qiao at [qiaoyt@zju.edu.cn](mailto:qiaoyt@zju.edu.cn).
