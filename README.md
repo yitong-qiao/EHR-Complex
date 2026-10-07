@@ -1,4 +1,4 @@
-# EHR-Complex
+# [EMNLP'26] EHR-Complex
 
 ## Benchmarking Medical Agents for Complex Clinical Reasoning
 
