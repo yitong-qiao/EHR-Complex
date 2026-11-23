@@ -1,0 +1,534 @@
+{
+  "source": "MIMIC-IV",
+  "version": "3.1",
+  "tables": {
+    "admissions": {
+      "source_file": "hosp/admissions.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "admittime": "TIMESTAMP",
+        "dischtime": "TIMESTAMP",
+        "deathtime": "TIMESTAMP",
+        "admission_type": "VARCHAR",
+        "admit_provider_id": "VARCHAR",
+        "admission_location": "VARCHAR",
+        "discharge_location": "VARCHAR",
+        "insurance": "VARCHAR",
+        "language": "VARCHAR",
+        "marital_status": "VARCHAR",
+        "race": "VARCHAR",
+        "edregtime": "TIMESTAMP",
+        "edouttime": "TIMESTAMP",
+        "hospital_expire_flag": "BIGINT"
+      },
+      "row_count": 546028
+    },
+    "caregiver": {
+      "source_file": "icu/caregiver.csv.gz",
+      "columns": {
+        "caregiver_id": "BIGINT"
+      },
+      "row_count": 17984
+    },
+    "chartevents": {
+      "source_file": "icu/chartevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "caregiver_id": "BIGINT",
+        "charttime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "itemid": "BIGINT",
+        "value": "VARCHAR",
+        "valuenum": "DOUBLE",
+        "valueuom": "VARCHAR",
+        "warning": "BIGINT"
+      },
+      "row_count": 432997491
+    },
+    "d_hcpcs": {
+      "source_file": "hosp/d_hcpcs.csv.gz",
+      "columns": {
+        "code": "VARCHAR",
+        "category": "BIGINT",
+        "long_description": "VARCHAR",
+        "short_description": "VARCHAR"
+      },
+      "row_count": 89208
+    },
+    "d_icd_diagnoses": {
+      "source_file": "hosp/d_icd_diagnoses.csv.gz",
+      "columns": {
+        "icd_code": "VARCHAR",
+        "icd_version": "BIGINT",
+        "long_title": "VARCHAR"
+      },
+      "row_count": 112107
+    },
+    "d_icd_procedures": {
+      "source_file": "hosp/d_icd_procedures.csv.gz",
+      "columns": {
+        "icd_code": "VARCHAR",
+        "icd_version": "BIGINT",
+        "long_title": "VARCHAR"
+      },
+      "row_count": 86423
+    },
+    "d_items": {
+      "source_file": "icu/d_items.csv.gz",
+      "columns": {
+        "itemid": "BIGINT",
+        "label": "VARCHAR",
+        "abbreviation": "VARCHAR",
+        "linksto": "VARCHAR",
+        "category": "VARCHAR",
+        "unitname": "VARCHAR",
+        "param_type": "VARCHAR",
+        "lownormalvalue": "BIGINT",
+        "highnormalvalue": "DOUBLE"
+      },
+      "row_count": 4095
+    },
+    "d_labitems": {
+      "source_file": "hosp/d_labitems.csv.gz",
+      "columns": {
+        "itemid": "BIGINT",
+        "label": "VARCHAR",
+        "fluid": "VARCHAR",
+        "category": "VARCHAR"
+      },
+      "row_count": 1650
+    },
+    "datetimeevents": {
+      "source_file": "icu/datetimeevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "caregiver_id": "BIGINT",
+        "charttime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "itemid": "BIGINT",
+        "value": "TIMESTAMP",
+        "valueuom": "VARCHAR",
+        "warning": "BIGINT"
+      },
+      "row_count": 9979761
+    },
+    "diagnoses_icd": {
+      "source_file": "hosp/diagnoses_icd.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "seq_num": "BIGINT",
+        "icd_code": "VARCHAR",
+        "icd_version": "BIGINT"
+      },
+      "row_count": 6364488
+    },
+    "drgcodes": {
+      "source_file": "hosp/drgcodes.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "drg_type": "VARCHAR",
+        "drg_code": "VARCHAR",
+        "description": "VARCHAR",
+        "drg_severity": "BIGINT",
+        "drg_mortality": "BIGINT"
+      },
+      "row_count": 761856
+    },
+    "emar": {
+      "source_file": "hosp/emar.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "emar_id": "VARCHAR",
+        "emar_seq": "BIGINT",
+        "poe_id": "VARCHAR",
+        "pharmacy_id": "BIGINT",
+        "enter_provider_id": "VARCHAR",
+        "charttime": "TIMESTAMP",
+        "medication": "VARCHAR",
+        "event_txt": "VARCHAR",
+        "scheduletime": "TIMESTAMP",
+        "storetime": "TIMESTAMP"
+      },
+      "row_count": 42808593
+    },
+    "emar_detail": {
+      "source_file": "hosp/emar_detail.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "emar_id": "VARCHAR",
+        "emar_seq": "BIGINT",
+        "parent_field_ordinal": "DOUBLE",
+        "administration_type": "VARCHAR",
+        "pharmacy_id": "BIGINT",
+        "barcode_type": "VARCHAR",
+        "reason_for_no_barcode": "VARCHAR",
+        "complete_dose_not_given": "BOOLEAN",
+        "dose_due": "VARCHAR",
+        "dose_due_unit": "VARCHAR",
+        "dose_given": "VARCHAR",
+        "dose_given_unit": "VARCHAR",
+        "will_remainder_of_dose_be_given": "BOOLEAN",
+        "product_amount_given": "VARCHAR",
+        "product_unit": "VARCHAR",
+        "product_code": "VARCHAR",
+        "product_description": "VARCHAR",
+        "product_description_other": "VARCHAR",
+        "prior_infusion_rate": "VARCHAR",
+        "infusion_rate": "VARCHAR",
+        "infusion_rate_adjustment": "VARCHAR",
+        "infusion_rate_adjustment_amount": "VARCHAR",
+        "infusion_rate_unit": "VARCHAR",
+        "route": "VARCHAR",
+        "infusion_complete": "VARCHAR",
+        "completion_interval": "VARCHAR",
+        "new_iv_bag_hung": "VARCHAR",
+        "continued_infusion_in_other_location": "VARCHAR",
+        "restart_interval": "VARCHAR",
+        "side": "VARCHAR",
+        "site": "VARCHAR",
+        "non_formulary_visual_verification": "VARCHAR"
+      },
+      "row_count": 87371064
+    },
+    "hcpcsevents": {
+      "source_file": "hosp/hcpcsevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "chartdate": "DATE",
+        "hcpcs_cd": "VARCHAR",
+        "seq_num": "BIGINT",
+        "short_description": "VARCHAR"
+      },
+      "row_count": 186074
+    },
+    "icustays": {
+      "source_file": "icu/icustays.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "first_careunit": "VARCHAR",
+        "last_careunit": "VARCHAR",
+        "intime": "TIMESTAMP",
+        "outtime": "TIMESTAMP",
+        "los": "DOUBLE"
+      },
+      "row_count": 94458
+    },
+    "ingredientevents": {
+      "source_file": "icu/ingredientevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "caregiver_id": "BIGINT",
+        "starttime": "TIMESTAMP",
+        "endtime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "itemid": "BIGINT",
+        "amount": "DOUBLE",
+        "amountuom": "VARCHAR",
+        "rate": "DOUBLE",
+        "rateuom": "VARCHAR",
+        "orderid": "BIGINT",
+        "linkorderid": "BIGINT",
+        "statusdescription": "VARCHAR",
+        "originalamount": "BIGINT",
+        "originalrate": "DOUBLE"
+      },
+      "row_count": 14253480
+    },
+    "inputevents": {
+      "source_file": "icu/inputevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "caregiver_id": "BIGINT",
+        "starttime": "TIMESTAMP",
+        "endtime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "itemid": "BIGINT",
+        "amount": "DOUBLE",
+        "amountuom": "VARCHAR",
+        "rate": "DOUBLE",
+        "rateuom": "VARCHAR",
+        "orderid": "BIGINT",
+        "linkorderid": "BIGINT",
+        "ordercategoryname": "VARCHAR",
+        "secondaryordercategoryname": "VARCHAR",
+        "ordercomponenttypedescription": "VARCHAR",
+        "ordercategorydescription": "VARCHAR",
+        "patientweight": "DOUBLE",
+        "totalamount": "DOUBLE",
+        "totalamountuom": "VARCHAR",
+        "isopenbag": "BIGINT",
+        "continueinnextdept": "BIGINT",
+        "statusdescription": "VARCHAR",
+        "originalamount": "DOUBLE",
+        "originalrate": "DOUBLE"
+      },
+      "row_count": 10953713
+    },
+    "labevents": {
+      "source_file": "hosp/labevents.csv.gz",
+      "columns": {
+        "labevent_id": "BIGINT",
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "specimen_id": "BIGINT",
+        "itemid": "BIGINT",
+        "order_provider_id": "VARCHAR",
+        "charttime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "value": "VARCHAR",
+        "valuenum": "DOUBLE",
+        "valueuom": "VARCHAR",
+        "ref_range_lower": "DOUBLE",
+        "ref_range_upper": "DOUBLE",
+        "flag": "VARCHAR",
+        "priority": "VARCHAR",
+        "comments": "VARCHAR"
+      },
+      "row_count": 158374764
+    },
+    "microbiologyevents": {
+      "source_file": "hosp/microbiologyevents.csv.gz",
+      "columns": {
+        "microevent_id": "BIGINT",
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "micro_specimen_id": "BIGINT",
+        "order_provider_id": "VARCHAR",
+        "chartdate": "TIMESTAMP",
+        "charttime": "TIMESTAMP",
+        "spec_itemid": "BIGINT",
+        "spec_type_desc": "VARCHAR",
+        "test_seq": "BIGINT",
+        "storedate": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "test_itemid": "BIGINT",
+        "test_name": "VARCHAR",
+        "org_itemid": "BIGINT",
+        "org_name": "VARCHAR",
+        "isolate_num": "BIGINT",
+        "quantity": "VARCHAR",
+        "ab_itemid": "BIGINT",
+        "ab_name": "VARCHAR",
+        "dilution_text": "VARCHAR",
+        "dilution_comparison": "VARCHAR",
+        "dilution_value": "DOUBLE",
+        "interpretation": "VARCHAR",
+        "comments": "VARCHAR"
+      },
+      "row_count": 3988224
+    },
+    "omr": {
+      "source_file": "hosp/omr.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "chartdate": "DATE",
+        "seq_num": "BIGINT",
+        "result_name": "VARCHAR",
+        "result_value": "VARCHAR"
+      },
+      "row_count": 7753027
+    },
+    "outputevents": {
+      "source_file": "icu/outputevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "caregiver_id": "BIGINT",
+        "charttime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "itemid": "BIGINT",
+        "value": "DOUBLE",
+        "valueuom": "VARCHAR"
+      },
+      "row_count": 5359395
+    },
+    "patients": {
+      "source_file": "hosp/patients.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "gender": "VARCHAR",
+        "anchor_age": "BIGINT",
+        "anchor_year": "BIGINT",
+        "anchor_year_group": "VARCHAR",
+        "dod": "DATE"
+      },
+      "row_count": 364627
+    },
+    "pharmacy": {
+      "source_file": "hosp/pharmacy.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "pharmacy_id": "BIGINT",
+        "poe_id": "VARCHAR",
+        "starttime": "TIMESTAMP",
+        "stoptime": "TIMESTAMP",
+        "medication": "VARCHAR",
+        "proc_type": "VARCHAR",
+        "status": "VARCHAR",
+        "entertime": "TIMESTAMP",
+        "verifiedtime": "TIMESTAMP",
+        "route": "VARCHAR",
+        "frequency": "VARCHAR",
+        "disp_sched": "VARCHAR",
+        "infusion_type": "VARCHAR",
+        "sliding_scale": "VARCHAR",
+        "lockout_interval": "VARCHAR",
+        "basal_rate": "DOUBLE",
+        "one_hr_max": "VARCHAR",
+        "doses_per_24_hrs": "BIGINT",
+        "duration": "DOUBLE",
+        "duration_interval": "VARCHAR",
+        "expiration_value": "BIGINT",
+        "expiration_unit": "VARCHAR",
+        "expirationdate": "TIMESTAMP",
+        "dispensation": "VARCHAR",
+        "fill_quantity": "VARCHAR"
+      },
+      "row_count": 17847567
+    },
+    "poe": {
+      "source_file": "hosp/poe.csv.gz",
+      "columns": {
+        "poe_id": "VARCHAR",
+        "poe_seq": "BIGINT",
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "ordertime": "TIMESTAMP",
+        "order_type": "VARCHAR",
+        "order_subtype": "VARCHAR",
+        "transaction_type": "VARCHAR",
+        "discontinue_of_poe_id": "VARCHAR",
+        "discontinued_by_poe_id": "VARCHAR",
+        "order_provider_id": "VARCHAR",
+        "order_status": "VARCHAR"
+      },
+      "row_count": 52212109
+    },
+    "poe_detail": {
+      "source_file": "hosp/poe_detail.csv.gz",
+      "columns": {
+        "poe_id": "VARCHAR",
+        "poe_seq": "BIGINT",
+        "subject_id": "BIGINT",
+        "field_name": "VARCHAR",
+        "field_value": "VARCHAR"
+      },
+      "row_count": 8504982
+    },
+    "prescriptions": {
+      "source_file": "hosp/prescriptions.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "pharmacy_id": "BIGINT",
+        "poe_id": "VARCHAR",
+        "poe_seq": "BIGINT",
+        "order_provider_id": "VARCHAR",
+        "starttime": "TIMESTAMP",
+        "stoptime": "TIMESTAMP",
+        "drug_type": "VARCHAR",
+        "drug": "VARCHAR",
+        "formulary_drug_cd": "VARCHAR",
+        "gsn": "VARCHAR",
+        "ndc": "VARCHAR",
+        "prod_strength": "VARCHAR",
+        "form_rx": "VARCHAR",
+        "dose_val_rx": "VARCHAR",
+        "dose_unit_rx": "VARCHAR",
+        "form_val_disp": "VARCHAR",
+        "form_unit_disp": "VARCHAR",
+        "doses_per_24_hrs": "BIGINT",
+        "route": "VARCHAR"
+      },
+      "row_count": 20292611
+    },
+    "procedureevents": {
+      "source_file": "icu/procedureevents.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "stay_id": "BIGINT",
+        "caregiver_id": "BIGINT",
+        "starttime": "TIMESTAMP",
+        "endtime": "TIMESTAMP",
+        "storetime": "TIMESTAMP",
+        "itemid": "BIGINT",
+        "value": "DOUBLE",
+        "valueuom": "VARCHAR",
+        "location": "VARCHAR",
+        "locationcategory": "VARCHAR",
+        "orderid": "BIGINT",
+        "linkorderid": "BIGINT",
+        "ordercategoryname": "VARCHAR",
+        "ordercategorydescription": "VARCHAR",
+        "patientweight": "DOUBLE",
+        "isopenbag": "BIGINT",
+        "continueinnextdept": "BIGINT",
+        "statusdescription": "VARCHAR",
+        "originalamount": "DOUBLE",
+        "originalrate": "BIGINT"
+      },
+      "row_count": 808706
+    },
+    "procedures_icd": {
+      "source_file": "hosp/procedures_icd.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "seq_num": "BIGINT",
+        "chartdate": "DATE",
+        "icd_code": "VARCHAR",
+        "icd_version": "BIGINT"
+      },
+      "row_count": 859655
+    },
+    "provider": {
+      "source_file": "hosp/provider.csv.gz",
+      "columns": {
+        "provider_id": "VARCHAR"
+      },
+      "row_count": 42244
+    },
+    "services": {
+      "source_file": "hosp/services.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "transfertime": "TIMESTAMP",
+        "prev_service": "VARCHAR",
+        "curr_service": "VARCHAR"
+      },
+      "row_count": 593071
+    },
+    "transfers": {
+      "source_file": "hosp/transfers.csv.gz",
+      "columns": {
+        "subject_id": "BIGINT",
+        "hadm_id": "BIGINT",
+        "transfer_id": "BIGINT",
+        "eventtype": "VARCHAR",
+        "careunit": "VARCHAR",
+        "intime": "TIMESTAMP",
+        "outtime": "TIMESTAMP"
+      },
+      "row_count": 2413581
+    }
+  }
+}

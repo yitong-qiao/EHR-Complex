@@ -1,0 +1,23 @@
+Agent:
+  llm:
+    model_type: OpenAI
+    model_name: YOUR_MODEL_NAME
+    max_total_tokens: 131072
+    max_input_tokens: 98304
+    max_new_tokens: 32768
+    log_probs: false
+    temperature: 0.0
+  n_retry: 3
+  retry_delay: 10
+Data:
+  metadata_path: data/metadata.json
+  data_path: data/ehr_complex
+Env:
+  n_retry: 3
+task: ehr_complex
+credentials_path: ""
+work_dir: results
+result_dir_tag: evaluation
+start_idx: 0
+end_idx: 500
+num_steps: 50
