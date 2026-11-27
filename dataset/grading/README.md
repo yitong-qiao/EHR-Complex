@@ -10,8 +10,8 @@ After installing the question package, call
 
 Field contracts specify required fields, types, order, and accepted ties.
 The fixed scorer also interprets explicit ordering requirements and units from
-the question wording. The released 500-question package uses the same scoring logic, with its
-applicable field contracts included in the package.
+the question wording. Representative 500 and Full 3,915 use the same fixed
+scoring logic, with the applicable field contracts included in each package.
 Answers must include the required values with correct field associations;
 missing values, extra entities, and contradictions fail.
 

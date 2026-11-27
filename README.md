@@ -20,6 +20,10 @@ scorer. The code repository provides the unified scorer; the authorized
 ModelScope package provides the questions, reference answers, and field rules it
 loads.
 
+The [Full 3,915 evaluation](full_3915/README.md) is also available, using the
+complete finalized test set with the same framework and unified scorer. The
+Representative 500 workflow below remains the quick-evaluation option.
+
 ## Benchmark overview
 
 ![EHR-Complex construction pipeline](assets/generation_pipeline.png)
@@ -89,7 +93,8 @@ Research** training, a signed PhysioNet Data Use Agreement (DUA), and approved
 [MIMIC-IV 3.1](https://physionet.org/content/mimiciv/3.1/) access. Download the
 hospital and ICU CSVs directly from PhysioNet; we do not distribute the database.
 
-To obtain the 500 questions, reference answers, and scoring annotations:
+To obtain the Representative 500 or Full 3,915 questions, reference answers,
+and scoring annotations:
 
 1. Email either `qiaoyt@zju.edu.cn` or `liulei1497@gmail.com`, preferably
    **sending to one and CC'ing the other**, with the subject
@@ -144,6 +149,10 @@ not already exist; allow space for the CSVs, temporary build, and database
 [database preparation](database_builder/README.md) for details.
 
 ## 2. Install the 500-question package
+
+For the complete test set, use the [Full 3,915 instructions](full_3915/README.md).
+Install one question package per clean checkout; use separate checkouts to
+evaluate both packages. They can share the same database via `EHR_COMPLEX_DB`.
 
 After approval, use an [access token](https://www.modelscope.cn/my/myaccesstoken)
 from the ModelScope account named in your email:

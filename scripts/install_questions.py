@@ -21,9 +21,10 @@ def install(source, check_only=False):
     spec.loader.exec_module(grader)
     questions = [json.loads(line) for line in payload[Path('dataset/questions_expected.jsonl')].splitlines()]
     mapping = [json.loads(line) for line in payload[Path('dataset/runtime_index_map.jsonl')].splitlines()]
-    if len(questions) != 500 or len(mapping) != 500:
-        raise ValueError('Expected exactly 500 questions and mapping entries.')
-    if {row['source_index'] for row in mapping} != set(range(500)):
+    question_count = len(questions)
+    if question_count not in (500, 3915) or len(mapping) != question_count:
+        raise ValueError('Expected 500 or 3915 questions with matching mapping entries.')
+    if {row['source_index'] for row in mapping} != set(range(question_count)):
         raise ValueError('Question mapping is not one-to-one.')
     runtime = defaultdict(list)
     for task_id, entry in enumerate(mapping):
@@ -39,7 +40,7 @@ def install(source, check_only=False):
             'paraphrase_index': task_id,
         })
     loaded_ids = [row['paraphrase_index'] for path in sorted(runtime) for row in runtime[path]]
-    if loaded_ids != list(range(500)):
+    if loaded_ids != list(range(question_count)):
         raise ValueError('Runtime file order differs from the task mapping.')
     for path, rows in runtime.items():
         payload[path] = ''.join(json.dumps(row, ensure_ascii=False) + '\n' for row in rows).encode()
@@ -57,7 +58,7 @@ def install(source, check_only=False):
             destination.parent.mkdir(parents=True, exist_ok=True)
             if not destination.exists():
                 destination.write_bytes(content)
-    print(f'{"Verified" if check_only else "Installed"}: 500 questions.')
+    print(f'{"Verified" if check_only else "Installed"}: {question_count} questions.')
 
 
 if __name__ == '__main__':
